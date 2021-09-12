@@ -32,8 +32,8 @@ GIVEN a functional Express.js API
 
 📰[Github Page](https://dionnenoellabarretto.github.io/13-ObjectRelationalMapping-eCommerceBackEnd_usingExpress.jsMySQLAndSequelize/)
 
-🎥 [Demonstration Video Link - Demonstration](https://drive.google.com/file/d/1Uh4gnhaJu52bZGt9QHCibVasnHWcKzmn/view?usp=sharing) 
-
+🎥 [Demonstration Video Link - Demonstration](https://drive.google.com/file/d/1sb-64L05qkHnmef4r63L3pS5Fher6w-9/view?usp=sharing) 
+🎞️ [Gif Demonstartion](./Assets/13-ObjectRelationalMapping-eCommerceBackEnd_usingExpress.jsMySQLAndSequelize.gif)
 🎞️ [Gif Demo1](./Assets/13-orm-homework-demo-01.gif)
 🎞️ [Gif Demo2](./Assets/13-orm-homework-demo-02.gif)
 🎞️ [Gif Demo3](./Assets/13-orm-homework-demo-03.gif)

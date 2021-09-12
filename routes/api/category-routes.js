@@ -19,15 +19,15 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  // find one category by its `id` value
-  // be sure to include its associated Products
-  try {
+
+  try {  // find one category by its `id` value
+  
     const categoryData = await Category.findByPk(req.params.id, {
       include: [Product],
     });
     if (!categoryData) {
       res.status(404).json({
-        message: 'No category found with this id!'
+        message: 'Oops! No category found with this id!'
       });
       return;
     }
@@ -39,8 +39,8 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // create a new category
-  try {
+  
+  try {// create a new category
     const categoryData = await Category.create(req.body);
     res.status(200).json(categoryData);
   } catch (err) {
@@ -49,8 +49,8 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-  // update a category by its `id` value
-  try {
+ 
+  try { // update a category by its `id` value
     const categoryData = await Category.update({
       category_name: req.body.category_name,
     },
@@ -72,8 +72,8 @@ router.put('/:id', async (req, res) => {
 
 
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
-  try {
+ 
+  try { // delete a category by its `id` value
     const categoryData = await Category.destroy({
       where: {
         id: req.params.id
@@ -82,7 +82,7 @@ router.delete('/:id', async (req, res) => {
 
     if (!categoryData) {
       res.status(404).json({
-        message: 'No category found with this id!'
+        message: 'Sorry! No category found with this id!'
       });
       return;
     }

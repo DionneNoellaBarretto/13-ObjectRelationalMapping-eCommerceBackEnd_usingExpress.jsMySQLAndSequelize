@@ -1,5 +1,5 @@
+//dependency import
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection.js');
 
 class Category extends Model {}
@@ -9,9 +9,9 @@ Category.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false, // not allowing null value
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true, //no need to set id explicitly in seed
     },
     category_name: {
       type: DataTypes.STRING,
@@ -24,8 +24,9 @@ Category.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'category',
+    modelName: 'category', // renaming
   }
 );
 
+//future use
 module.exports = Category;
