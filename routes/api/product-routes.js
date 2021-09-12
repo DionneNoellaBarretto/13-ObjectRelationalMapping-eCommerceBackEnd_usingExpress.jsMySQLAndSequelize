@@ -4,66 +4,40 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   // find all products
-  Product.findAll({
   // be sure to include its associated Category and Tag data
-    include: [{
-      model: Category,
-      attributes: ['id', 'category_name']
-    },
-  {
-    model: Tag,
-    attributes: ['id', 'tag_name']
-  }]
-  })
-  .then((data) => res.json(data))
-  .catch((err) => {
-    console.error(err);
+  try {
+    const productData = await Product.findAll({
+      include: [{model: Category }, {model: Tag }],
+    });
+    res.status(200).json(productData);
+  } catch (err) {
     res.status(500).json(err);
-  });
+  }
 });
 
-// Async not working   -Error: SyntaxError: await is only valid in async functions and the top level bodies of modules
-// router.get('/', async(req, res) => {
-//   // find all products
-//   // be sure to include its associated Category and Tag data
-//   try {
-//     const productData = await Product.findAll({
-//       include: [{model: Category }, {model: Tag }],
-//     });
-//     res.status(200).json(productData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 // get one product
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   // find a single product by its `id`
-  Product.findOne({
-    // be sure to include its associated Category and Tag data
-      where: {id: req.params.id},
-      include: [{
-        model: Category,
-        attributes: ['id', 'category_name']
-      },
-    {
-      model: Tag,
-      attributes: ['id', 'tag_name']
-    }]
-    })
-    .then((data) => {
-      if (!data) {
-        res.status(404).json({message: 'Sorry! No product found!'});
-        return;
-      }
-      res.json(data);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json(err);
-    });});
+  // be sure to include its associated Category and Tag data
+  try {
+    const productData = await Product.findByPk(req.params.id, {
+      include: [{ model: Category}, { model: Tag,}], //through: ProductTag, as: '' }],
+    });
+    if (!productData) {
+      res.status(404).json({
+        message: 'No product found with this id!'
+      });
+      return;
+    }
+
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // create new product
 router.post('/', (req, res) => {
@@ -139,10 +113,26 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
+  try {
+    const productData = await Product.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
 
+    if (!productData) {
+      res.status(404).json({
+        message: 'No product found with this id!'
+      });
+      return;
+    }
 
+    res.status(200).json(productData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;

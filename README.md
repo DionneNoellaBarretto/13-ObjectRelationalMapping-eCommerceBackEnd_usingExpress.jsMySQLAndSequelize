@@ -34,8 +34,9 @@ GIVEN a functional Express.js API
 
 🎥 [Demonstration Video Link - Demonstration](https://drive.google.com/file/d/1Uh4gnhaJu52bZGt9QHCibVasnHWcKzmn/view?usp=sharing) 
 
-🎞️ ![Gif Demo](./Assets/EmployeeContentManagementSystem_using_mysql-node.js.gif)
-
+🎞️ [Gif Demo1](./Assets/13-orm-homework-demo-01.gif)
+🎞️ [Gif Demo2](./Assets/13-orm-homework-demo-02.gif)
+🎞️ [Gif Demo3](./Assets/13-orm-homework-demo-03.gif)
 
 ## Usage Instructions
 
@@ -46,8 +47,37 @@ Use the `schema.sql` file in the `db` folder to create a database with MySQL she
 ## Application Functionality Screenshots
 
 The following images show the web application's appearance and functionality:
-Placeholder Image: 
-![Placeholder](./Assets/Placeholder.png)
+**All Gets (Product, Category,Tags with id1 highlighted for each)**: 
+![AllCategoriesCategoryID1](./Assets/AllCategoriesCategoryID1.png)
+![AllProductsProductID1](./Assets/AllProductsProductID1.png)
+![AllTags,TagID1](./Assets/AllTags,TagID1.png)
+**Product ID1**:
+![ProductID1](./Assets/ProductID1.png)
+**Tag ID 2**:
+![TagID2](.Assets/tagID2.png)
+**Example Get Category ID 4**:
+![Get Category ID 4](./Assets/CategoryID4.png)
+**Example Post New Category**:
+![New Category Posted](./Assets/NewCategory(CategoryID6).png)
+**Example Get Category ID 6/ DB Value for 6**:
+![Get Category ID 6](./Assets/CategoryID6(DB,Get-Update).png)
+**Example Put Category ID 6/ DB value for 6**:
+![Put Category Operation](./Assets/PutCategory.png)
+**Example of Updated Get Category ID 6/ DB Value for 6**:
+![Get Category ID 6](./Assets/GetCategoryID6Operation.png)
+**Example Delete Category ID 6/ DB Value for 6**:
+![Delete Category ID 6](./Assets/DeleteCategoryID.png)
+**Example Error for non existent Tag ID 9/ DB Value for 9**:
+![Delete Tag ID 9](./Assets/DelteTagID9.png)
+**Example New Product Posted**:
+![New Product Posted](./Assets/NewProduct,ProductID6.png)
+**Error Example for missing required information in json**:
+![Missing Information Error](./Assets/ErrorsformissingProductentries.png)
+**Example new Tag ID posted**:
+![New Tag Addition](./Assets\TagID9_newaddition.png)
+**Error Example for wrong url**:
+![Wrong URL Error](./Assets/IncorrectRoute.png)
+
 
 ## Grading Requirements
 

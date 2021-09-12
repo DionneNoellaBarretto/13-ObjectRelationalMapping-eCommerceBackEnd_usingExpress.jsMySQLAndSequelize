@@ -9,14 +9,15 @@ Category.init(
     // define columns
     id: {
       type: DataTypes.INTEGER,
-      autoIncrement: true, //avoiding manual id creation
+      allowNull: false,
       primaryKey: true,
-      allowNull: false, //ensures no null values are present 
+      autoIncrement: true,
     },
     category_name: {
       type: DataTypes.STRING,
-      allowNull: false, //ensures no null values are present 
+      allowNull: false,
     },
+  
   },
   {
     sequelize,
